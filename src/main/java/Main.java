@@ -1,4 +1,54 @@
- ///////////////////////////////
+
+
+
+  public static boolean isIn(Queue<String> q, String s) {
+      Queue <String> h=copy_string(q);
+        boolean found = false;
+
+
+        while (!h.isEmpty()){
+           
+            if ( h.remove().equals(s)) 
+                found = true;
+            
+           
+           
+        }
+
+        return found;
+    }
+
+
+
+///////////////////////////////////
+ public static boolean ex2_(Queue<String> q2) {
+        Queue<String> A = copy_string(q2);
+        Queue<String> h = copy_string(q2);
+        boolean bool = false;
+
+        while (!h.isEmpty()) {
+            A = copy_string(q2);
+            String x = h.remove();
+            if (isIn(A, x)) {
+                bool = true;
+                
+            }
+           
+        }
+
+        return bool;
+    }
+
+    
+   
+
+
+
+
+
+
+
+///////////////////////////////
  
   public static int max_q( Queue <Integer> q){ 
  Queue <Integer> h=ex1(q);
