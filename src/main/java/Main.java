@@ -115,3 +115,96 @@
   return h;}  
 
 /////////////////////////////////
+
+
+//עצים.........................................
+///////////////////////////////////
+public static void printEven(BinNode<Integer> t) {
+
+if (t==null)
+return; 
+
+
+if(t.getValue()%2==0)
+if (!t.hasLeft()||t.getLeft().getValue%2==0){
+if (!t.hasRight()||t.getRight().getValue%2==0){
+    System.out.println(t.getValue());
+} 
+
+printEven(t.getLeft());
+printEven(t.getRight());
+    
+}
+}
+
+
+
+
+//////////////////////////////////
+
+public static int printEvenb(BinNode<Integer> t) {
+
+    if (t == null)
+        return 0; 
+
+    int count = 0;
+
+    if (t.getValue() % 2 == 0)
+        if (!t.hasLeft() || t.getLeft().getValue() % 2 == 0)
+            if (!t.hasRight() || t.getRight().getValue() % 2 == 0) {
+                System.out.println(t.getValue());
+                count = 1;
+            }
+
+    return count + printEvenb(t.getLeft()) + printEvenb(t.getRight());
+}
+
+
+/////////////////////////////
+public static boolean hasEvenC(BinNode<Integer> t) {
+
+    if (t == null)
+        return false;
+
+    if (t.getValue() % 2 == 0)
+        if (!t.hasLeft() || t.getLeft().getValue() % 2 == 0)
+            if (!t.hasRight() || t.getRight().getValue() % 2 == 0)
+                return true;
+
+    return hasEvenC(t.getLeft()) || hasEvenC(t.getRight());
+}
+
+///////////////////////////////
+
+public static boolean allEvenD(BinNode<Integer> t) {
+
+    if (t == null)
+   return true;  
+    if (t.getValue() % 2 != 0)
+    return false;
+    if (t.hasLeft() && t.getLeft().getValue() % 2 != 0)
+   return false;
+    if (t.hasRight() && t.getRight().getValue() % 2 != 0)
+        return false;
+return allEvenD(t.getLeft()) && allEvenD(t.getRight());
+}
+
+
+
+
+
+
+
+
+
+////////////////////////////
+
+
+
+
+
+
+
+
+
+
