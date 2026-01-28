@@ -201,6 +201,99 @@ return allEvenD(t.getLeft()) && allEvenD(t.getRight());
 
 
 
+/////////////////////////////
+public static int ex12(BinNode<Integer> t) {
+int count=0;
+if (t==null)
+return 0; 
+
+
+if(t.getValue()>=10&&t.getValue()<100)
+count=1;
+
+return count+ex12(t.getLeft())+ ex12(t.getRight());
+
+    
+}
+
+//////////////////////////////////
+public static <T> int ex14(BinNode<T> t) {
+int count=0;
+if (t==null)
+return 0; 
+
+
+if(t.getLeft()==null&&t.getRight()==null)
+count=1;
+
+return count+ex14(t.getLeft())+ ex14(t.getRight());
+
+    
+}
+///////////////////////////////
+public static int ex16(BinNode<Integer> t) {
+if (t==null)
+return 0; 
+
+
+if(t.getLeft()!=null&&t.getRight()!=null)
+return t.getValue()+ex16(t.getLeft())+ ex16(t.getRight());
+
+return ex16(t.getLeft())+ ex16(t.getRight());
+
+    
+}
+
+/////////////////////////////
+public static int ex17(BinNode<Integer> t) {
+int count=0;
+if (t==null)
+return 0; 
+
+
+if((t.getLeft()!=null&&t.getRight()!=null)&&(t.getLeft().getLeft()!=null&&t.getLeft().getRight()!=null&&t.getRight().getRight()!=null&&t.getRight().getLeft()!=null))
+count=1;
+
+return count+ex17(t.getLeft())+ ex17(t.getRight());
+
+
+
+    
+}
+
+////////////////////////////
+	public static void main(String[] args) {
+	    
+       // יוצרים עץ לבדיקה
+        BinNode<Integer> n1 = new BinNode<>(2);
+        BinNode<Integer> n2 = new BinNode<>(4);
+        BinNode<Integer> n3 = new BinNode<>(6);
+        BinNode<Integer> n4 = new BinNode<>(3);  // צומת בעייתי
+
+        BinNode<Integer> leftSub = new BinNode<>(n1, 8, n2); // 8 עם ילדים 2 ו-4
+        BinNode<Integer> rightSub = new BinNode<>(n3, 10, n4); // 10 עם 6 ו-3
+
+        BinNode<Integer> t = new BinNode<>(leftSub, 12, rightSub); // 12 עם שני תתי עצים
+
+      
+		//System.out.println(t);
+
+		//printOdd(t);
+		
+		
+		//printLeft(t15);
+		
+		//System.out.println(printEvenb(t));
+		
+		System.out.println(ex12(t));
+		System.out.println(ex14(t));
+		System.out.println(ex16(t));
+		System.out.println(ex17(t));
+	}
+	
+}
+	    
+
 
 
 
