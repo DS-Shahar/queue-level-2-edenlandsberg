@@ -262,6 +262,47 @@ return count+ex17(t.getLeft())+ ex17(t.getRight());
 }
 
 ////////////////////////////
+
+
+public static boolean AllEven(BinNode<Integer> t) {
+
+    if (t == null)
+        return true; 
+
+if(t.getLeft()==null&&t.getRight()==null){
+if (t.getValue()%2==1)
+return false;
+  
+}
+ 
+  return ((AllEven(t.getLeft()) && AllEven(t.getRight())));
+    
+
+}
+
+
+///////////////////////////
+public static boolean ex3(BinNode<Integer> t) {
+
+    if (t == null)
+        return true; 
+
+if(t.hasRight()){
+if (!(t.hasLeft()))
+return false;
+  
+}
+
+ 
+  return ((ex3(t.getLeft()) && ex3(t.getRight())));
+    
+
+}
+
+
+///////////////////////////
+
+
 	public static void main(String[] args) {
 	    
        // יוצרים עץ לבדיקה
