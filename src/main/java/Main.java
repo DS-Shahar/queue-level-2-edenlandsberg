@@ -337,7 +337,90 @@ return false;
 
 
 
+/******************************************************************************
 
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+*/
+import java.util.*;
+public class Main
+{
+
+
+static Scanner reader=new Scanner(System.in);
+
+///////////////////////////////////////////////////////////////
+
+public static boolean ex6(BinNode<Range> t)
+{
+    if (t == null)
+        return true;
+
+    if (t.hasLeft())
+    {
+        if (t.getValue().getLow() >= t.getLeft().getValue().getLow() &&
+            t.getValue().getHigh() <= t.getLeft().getValue().getHigh())
+            return false;
+    }
+
+    if (t.hasRight())
+    {
+        if (t.getValue().getHigh() <= t.getRight().getValue().getHigh() &&
+            t.getValue().getLow() >= t.getRight().getValue().getLow())
+            return false;
+    }
+
+    if (t.hasRight() && t.hasLeft())
+    {
+        if (t.getLeft().getValue().getHigh() <=
+            t.getRight().getValue().getLow())
+            return false;
+    }
+
+    return ex6(t.getLeft()) && ex6(t.getRight());
+}
+
+
+
+
+    
+    
+    
+    
+    
+    
+    public static void main(String[] args) {
+        // יצירת עץ לדוגמה
+        BinNode<Range> root = new BinNode<>(new Range(10, 20));
+        BinNode<Range> leftChild = new BinNode<>(new Range(5, 15));
+        BinNode<Range> rightChild = new BinNode<>(new Range(15, 25));
+
+        // חיבור בין הצמתים
+        root.setLeft(leftChild);
+        root.setRight(rightChild);
+
+        // יצירת צמתים נוספים
+        BinNode<Range> leftLeftChild = new BinNode<>(new Range(3, 8));
+        leftChild.setLeft(leftLeftChild);
+
+        BinNode<Range> rightLeftChild = new BinNode<>(new Range(12, 18));
+        rightChild.setLeft(rightLeftChild);
+
+        // קריאה לפונקציה ex6 על העץ
+        boolean result = ex6(root);
+
+        // הדפסת התוצאה
+        System.out.println("Is the tree valid according to ex6 conditions? " + result);
+  
+  
+
+    }
+}
+
+
+	    
 
 
 
